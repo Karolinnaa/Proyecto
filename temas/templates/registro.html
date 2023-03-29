@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <h1>Registro</h1>
+<img src="{% static 'imagenes/imagen2.jpg' %}" alt="">
+  {{error}}
+
+  <form action="/registro/" method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <button class="btn btn-primary">Registrarse</button>
+  </form>
+</div>
+{% endblock %}
+

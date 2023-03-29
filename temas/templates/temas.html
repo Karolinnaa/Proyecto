@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+<h1>Temas</h1>
+<img src="{% static 'imagenes/imagen4.jpg' %}" alt="">
+<ul>
+  {% for tema in temas %}
+  <li>
+    <a href="{% url 'detalle_tema' tema_id=tema.id %}">
+      {% if tema.importante %}
+      <strong>{{tema.title}}</strong>
+      {% else %} {{tema.id}} {{tema.title}} {% endif %}
+      <p>{{tema.descripcion}}</p>
+
+      {{tema.fechacompletado|date:'M j Y:i'}}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

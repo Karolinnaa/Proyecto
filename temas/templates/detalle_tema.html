@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{tema.title}}
+
+{{error}}
+
+<form method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+
+  <button>
+    Actualizar
+  </button>
+</form>
+
+<form action="{% url 'completar_tema' tema_id=tema.id %}" method="POST">
+  {% csrf_token %}
+  <button>
+    completar
+  </button>
+</form>
+
+<form action="{% url 'eliminar_tema' tema_id=tema.id %}" method="POST">
+  {% csrf_token %}
+  <button>
+    Eliminar
+  </button>
+</form>
+
+{% endblock %}
